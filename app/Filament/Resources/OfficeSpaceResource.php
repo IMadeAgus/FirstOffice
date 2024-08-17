@@ -6,6 +6,10 @@ use App\Filament\Resources\OfficeSpaceResource\Pages;
 use App\Filament\Resources\OfficeSpaceResource\RelationManagers;
 use App\Models\OfficeSpace;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,7 +27,33 @@ class OfficeSpaceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+                TextInput::make('address')
+                ->required()
+                ->maxLength(255),
+                FileUpload::make('thumbnail')
+                ->image()
+                ->required(),
+                Textarea::make('about')
+                ->required()
+                ->rows(10)
+                ->cols(10),
+
+                Repeater::make('photos')
+                ->relationship('photos')
+                ->schema([
+                    FileUpload::make('photo')
+                    ->required(),
+                ]),
+
+                Repeater::make('benefits')
+                ->relationship('benefits')
+                ->schema([
+                    TextInput::make('name')
+                    ->required()
+                ]),
             ]);
     }
 
