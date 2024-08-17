@@ -14,8 +14,5 @@ class OfficeSpacePhoto extends Model
         "photo",
         "office_space_id",
     ];
-    public function officeSpace(): BelongsTo
-    {
-        return $this->belongsTo(OfficeSpace::class);
-    }
+ 
 }

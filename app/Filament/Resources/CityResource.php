@@ -6,12 +6,18 @@ use App\Filament\Resources\CityResource\Pages;
 use App\Filament\Resources\CityResource\RelationManagers;
 use App\Models\City;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+use function Laravel\Prompts\search;
 
 class CityResource extends Resource
 {
@@ -23,7 +29,14 @@ class CityResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                ->helperText('Gunakan nama data dengan tepat')
+                ->maxLength(255)
+                ->required(),
+
+                FileUpload::make('photo')
+                ->image()
+                ->required()
             ]);
     }
 
@@ -31,13 +44,16 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                ->searchable(),
+                ImageColumn::make('photo')
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
