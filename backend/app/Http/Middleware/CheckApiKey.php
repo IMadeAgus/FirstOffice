@@ -17,7 +17,7 @@ class CheckApiKey
     public function handle(Request $request, Closure $next): Response
     {
         $apiKey = $request->header('X-API-KEY');
-        if (!$apiKey || !ApiKey::where('key', $apiKey)->exist()) {
+        if (!$apiKey || !ApiKey::where('key', $apiKey)->exists()) {
             return response()->json(['message' => 'Unathorized'], 401);
         }
 

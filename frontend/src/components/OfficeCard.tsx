@@ -21,12 +21,12 @@ export default function OfficeCard({ office }: OfficeCardProps) {
           </h3>
           <div className="flex items-center justify-between">
             <p className="font-semibold text-xl leading-[30px]">
-              {office.price.toLocaleString("id")}
+              Rp {office.price.toLocaleString("id")}
             </p>
             <div className="flex items-center justify-end gap-[6px]">
               <p className="font-semibold">{office.duration} days</p>
               <img
-                src="assets/images/icons/clock.svg"
+                src="/assets/images/icons/clock.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -36,7 +36,7 @@ export default function OfficeCard({ office }: OfficeCardProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/location.svg"
+                src="/assets/images/icons/location.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -45,7 +45,7 @@ export default function OfficeCard({ office }: OfficeCardProps) {
             <div className="flex items-center justify-end gap-[6px]">
               <p className="font-semibold">4.5/5</p>
               <img
-                src="assets/images/icons/Star 1.svg"
+                src="/assets/images/icons/Star 1.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -55,7 +55,7 @@ export default function OfficeCard({ office }: OfficeCardProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/wifi.svg"
+                src="/assets/images/icons/wifi.svg"
                 className="w-6 h-6"
                 alt="icon"
               />
@@ -63,7 +63,7 @@ export default function OfficeCard({ office }: OfficeCardProps) {
             </div>
             <div className="flex items-center justify-end gap-[6px]">
               <img
-                src="assets/images/icons/security-user.svg"
+                src="/assets/images/icons/security-user.svg"
                 className="w-6 h-6"
                 alt="icon"
               />

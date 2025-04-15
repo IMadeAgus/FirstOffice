@@ -9,9 +9,9 @@ export default function BrowseOfficeWrapper() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/office", {
+      .get("http://localhost:8000/api/offices", {
         headers: {
-          X_API_KEY: "test",
+          X_API_KEY: "ugbwqoufbnqfbnwir11no2kh79",
         },
       })
       .then((response) => {
@@ -42,8 +42,8 @@ export default function BrowseOfficeWrapper() {
         For Your Better Productivity.
       </h2>
       <div className="grid grid-cols-3 gap-[30px]">
-        {offices.map((city) => (
-          <OfficeCard></OfficeCard>
+        {offices.map((office) => (
+          <OfficeCard key={office.id} office={office}></OfficeCard>
         ))}
       </div>
     </section>

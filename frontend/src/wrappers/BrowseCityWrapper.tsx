@@ -12,9 +12,9 @@ export default function BrowseCityWrapper() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/cities", {
+      .get("http://localhost:8000/api/cities", {
         headers: {
-          X_API_KEY: "test",
+          X_API_KEY: "ugbwqoufbnqfbnwir11no2kh79",
         },
       })
       .then((response) => {
