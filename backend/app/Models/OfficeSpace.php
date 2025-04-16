@@ -25,10 +25,13 @@ class OfficeSpace extends Model
         "slug",
     ];
 
-    public function setNameAttribute($value){
+    public function setNameAttribute($value)
+    {
         $this->attributes["name"] = $value;
-        $this->attributes["slug"] = Str::slug($value)  ;
+        $this->attributes["slug"] = Str::slug($value);
     }
+
+
     public function photos(): HasMany
     {
         return $this->hasMany(OfficeSpacePhoto::class);

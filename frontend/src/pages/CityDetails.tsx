@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { City } from "../types/type";
 import OfficeCard from "../components/OfficeCard";
 import Navbar from "../components/Navbar";
@@ -78,7 +78,9 @@ export default function CityDetails() {
         </h2>
         <div className="grid grid-cols-3 gap-[30px]">
           {city.officeSpaces.map((office) => (
-            <OfficeCard key={office.id} office={office}></OfficeCard>
+            <Link key={office.id} to={`/office/${office.slug}`}>
+              <OfficeCard office={office}></OfficeCard>
+            </Link>
           ))}
         </div>
       </section>

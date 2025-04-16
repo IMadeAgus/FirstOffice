@@ -15,7 +15,7 @@ export default function Details() {
     axios
       .get(`http://127.0.0.1:8000/api/office/${slug}`, {
         headers: {
-          "Χ-ΑΡΙ-ΚΕΥ": "kasj102930qwikska0129ks",
+          "X-API-KEY": "ugbwqoufbnqfbnwir11no2kh79",
         },
       })
       .then((response) => {
@@ -46,10 +46,10 @@ export default function Details() {
           <div className="swiper-wrapper">
             <Swiper
               direction="horizontal"
-              spaceBetween={30}
+              spaceBetween={10}
               slidesPerView="auto"
-              slidesOffsetAfter={30}
-              slidesOffsetBefore={30}
+              slidesOffsetAfter={10}
+              slidesOffsetBefore={10}
             >
               <SwiperSlide className=" swiper-slide !w-fit">
                 <div className="w-[700px] h-[550px] overflow-hidden">
@@ -86,7 +86,7 @@ export default function Details() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-extrabold text-[32px] leading-[44px]">
-                Angga Park Central <br /> Master Capitalize
+                {office.name}
               </h1>
               <div className="flex items-center gap-[6px] mt-[10px]">
                 <img
@@ -94,7 +94,7 @@ export default function Details() {
                   className="w-6 h-6"
                   alt="icon"
                 />
-                <p className="font-semibold">Jakarta Pusat</p>
+                <p className="font-semibold">{office.city.name}</p>
               </div>
             </div>
             <div className="flex flex-col gap-[6px]">
@@ -128,13 +128,7 @@ export default function Details() {
               <p className="font-semibold text-right">4.5/5 (19,384)</p>
             </div>
           </div>
-          <p className="leading-[30px]">
-            Whether you need quite private space away from the distractions of
-            an at-times chaotic home office, you’re on a team that needs to
-            brainstorm and collaborate in person, or you’re owner meeting with
-            prospective hires, clients, and partners, having access to hundreds
-            of workspaces can be a game-changing resource.
-          </p>
+          <p className="leading-[30px]">{office.about}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
           <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
@@ -210,8 +204,8 @@ export default function Details() {
           <hr className="border-[#F6F5FD]" />
           <div className="flex flex-col gap-[6px]">
             <h2 className="font-bold">Office Address</h2>
-            <p>Angga Park Central Master Capitalize</p>
-            <p>BLDG E16, 13 Xicheng District, Beijing, China, 100000</p>
+            <p>{office.name}</p>
+            <p>{office.address}</p>
           </div>
           <div className="overflow-hidden w-full h-[280px]">
             <div
@@ -221,7 +215,9 @@ export default function Details() {
               <iframe
                 className="h-full w-full border-0"
                 frameBorder={0}
-                src="https://www.google.com/maps/embed/v1/place?q=Xicheng+District,+Beijing,&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(
+                  office.city.name
+                )}`}
               />
             </div>
             <a
@@ -237,42 +233,26 @@ export default function Details() {
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
             <div>
               <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
-                Rp 18.540.000
+                Rp {office.price.toLocaleString()}
               </p>
-              <p className="font-semibold mt-1">For 20 days working</p>
+              <p className="font-semibold mt-1">
+                For {office.duration} days working
+              </p>
             </div>
             <hr className="border-[#F6F5FD]" />
+
             <div className="flex flex-col gap-5">
-              <div className="flex items-center gap-3">
-                <img
-                  src="/assets/images/icons/verify.svg"
-                  className="w-[30px] h-[30px]"
-                  alt="icon"
-                />
-                <p className="font-semibold leading-[28px]">
-                  Mendapatkan akses pembelajaran terbaru terkait dunia startup
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img
-                  src="/assets/images/icons/verify.svg"
-                  className="w-[30px] h-[30px]"
-                  alt="icon"
-                />
-                <p className="font-semibold leading-[28px]">
-                  Mendapatkan akses pembelajaran terbaru terkait dunia startup
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img
-                  src="/assets/images/icons/verify.svg"
-                  className="w-[30px] h-[30px]"
-                  alt="icon"
-                />
-                <p className="font-semibold leading-[28px]">
-                  Mendapatkan akses pembelajaran terbaru terkait dunia startup
-                </p>
-              </div>
+              {office.benefits.map((benefits) => (
+                <div key={benefits.id} className="flex items-center gap-3">
+                  <img
+                    src="/assets/images/icons/verify.svg"
+                    className="w-[30px] h-[30px]"
+                    alt="icon"
+                  />
+                  <p className="font-semibold leading-[28px]"></p>
+                  {benefits.name}
+                </div>
+              ))}
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-[14px]">

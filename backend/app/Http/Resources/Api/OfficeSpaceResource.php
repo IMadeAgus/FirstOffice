@@ -19,6 +19,7 @@ class OfficeSpaceResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'duration' => $this->duration,
+            'address' => $this->address,
             'price' => $this->price,
             'thumbnail' => $this->thumbnail,
             'about' => $this->about,

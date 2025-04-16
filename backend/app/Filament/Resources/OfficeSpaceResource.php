@@ -3,9 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OfficeSpaceResource\Pages;
-use App\Filament\Resources\OfficeSpaceResource\RelationManagers;
+
 use App\Models\OfficeSpace;
-use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -19,8 +18,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+
 
 class OfficeSpaceResource extends Resource
 {
@@ -33,62 +31,62 @@ class OfficeSpaceResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
                 TextInput::make('address')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
                 FileUpload::make('thumbnail')
-                ->image()
-                ->required(),
+                    ->image()
+                    ->required(),
                 Textarea::make('about')
-                ->required()
-                ->rows(10)
-                ->cols(10),
+                    ->required()
+                    ->rows(10)
+                    ->cols(10),
 
                 Repeater::make('photos')
-                ->relationship('photos')
-                ->schema([
-                    FileUpload::make('photo')
-                    ->required(),
-                ]),
+                    ->relationship('photos')
+                    ->schema([
+                        FileUpload::make('photo')
+                            ->required(),
+                    ]),
 
                 Repeater::make('benefits')
-                ->relationship('benefits')
-                ->schema([
-                    TextInput::make('name')
-                    ->required()
-                ]),
+                    ->relationship('benefits')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required()
+                    ]),
 
                 Select::make('city_id')
-                ->relationship('city', 'name')
-                ->searchable()
-                ->preload()
-                ->required(),
+                    ->relationship('city', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
                 TextInput::make('price')
-                ->required()
-                ->numeric()
-                ->prefix('IDR'),
+                    ->required()
+                    ->numeric()
+                    ->prefix('IDR'),
 
                 TextInput::make('duration')
-                ->required()
-                ->numeric()
-                ->prefix('Days'),
+                    ->required()
+                    ->numeric()
+                    ->prefix('Days'),
 
                 Select::make('is_open')
-                ->options([
-                    true => 'Open',
-                    false =>   'Not Open',
-                ])
-                ->required(),
+                    ->options([
+                        true => 'Open',
+                        false =>   'Not Open',
+                    ])
+                    ->required(),
 
                 Select::make('is_full_booked')
-                ->options([
-                    true => 'Not Avaible',
-                    false =>   'Avaible',
-                ])
-                ->required(),
+                    ->options([
+                        true => 'Not Avaible',
+                        false =>   'Avaible',
+                    ])
+                    ->required(),
 
             ]);
     }
@@ -98,21 +96,21 @@ class OfficeSpaceResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                ->searchable(),
+                    ->searchable(),
                 ImageColumn::make('thumbnail'),
                 TextColumn::make('city.name'),
                 IconColumn::make('is_full_booked')
-                ->boolean()
-                ->trueColor('danger')
-                ->falseColor('success')
-                ->trueIcon('heroicons-o-x-circle')
-                ->falseIcon('heroicons-o-x-check-circle')
-                ->label('avaible')
+                    ->boolean()
+                    ->trueColor('danger')
+                    ->falseColor('success')
+                    ->trueIcon('heroicon-o-x-circle')
+                    ->falseIcon('heroicon-o-check-circle')
+                    ->label('avaible')
             ])
             ->filters([
                 SelectFilter::make('city_id')
-                ->label('City')
-                ->relationship('city', 'name')
+                    ->label('City')
+                    ->relationship('city', 'name')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
