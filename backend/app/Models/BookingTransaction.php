@@ -20,17 +20,18 @@ class BookingTransaction extends Model
         "duration",
         "ended_at",
         "office_space_id",
-    ] ;
+    ];
 
-    public function generateUniqueTrxId(){
+    public static function generateUniqueTrxId()
+    {
         $prefix = 'RO';
         do {
-            $randomString = $prefix . mt_rand(1000,9999);
-        }while (self::where('booking_trx_id', $randomString)->exists());
+            $randomString = $prefix . mt_rand(1000, 9999);
+        } while (self::where('booking_trx_id', $randomString)->exists());
 
         return $randomString;
     }
-    
+
     public function officeSpace(): BelongsTo
     {
         return $this->belongsTo(OfficeSpace::class);
