@@ -22,8 +22,8 @@ class BookingTransactionResource extends JsonResource
             'is_paid' => (bool) $this->is_paid,
             'duration' => $this->duration,
             'total_amount' => $this->total_amount,
-            'started_at' => $this->started_at->format('Y-m-d'),
-            'ended_at' => $this->ended_at->format('Y-m-d'),
+            'started_at' => $this->started_at,
+            'ended_at' => $this->ended_at,
             'officeSpace' => $this->whenLoaded('officeSpace')
         ];
     }
