@@ -57,7 +57,6 @@ For Admins
 
 Challenges
 
-- Login-Free Booking System: Creating a secure system without requiring user registration
 - Frontend-Backend Synchronization: Ensuring smooth data communication between React and Laravel
 - Data Validation: Ensuring booking data is valid before entering the database
 - UI Responsiveness: Building interfaces that function optimally across various devices
@@ -65,7 +64,6 @@ Challenges
 
 Solutions
 
-- Implementation of phone number verification via OTP for login-free booking
 - Use of TypeScript interfaces aligned with Laravel API Resources
 - Layered validation with Zod (frontend) and Request Validation (backend)
 - Leveraging Tailwind CSS with a mobile-first design approach
