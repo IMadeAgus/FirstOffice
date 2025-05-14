@@ -90,6 +90,7 @@ From this project, I gained valuable experience in fullstack development combini
 1️⃣ Backend (Laravel + Filament)
 
 ```bash
+git clone https://github.com/IMadeAgus/RentOffice.git
 cd backend
 composer install
 cp .env.example .env
