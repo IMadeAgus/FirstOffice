@@ -4,7 +4,7 @@
 
 ## 🔗 Links
 
-- 🔴 **Live Demo** – *Coming Soon*
+- 🔴 **Live sites** – *Coming Soon*
 
 
 ## 📌 Project Overview
