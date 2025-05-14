@@ -43,10 +43,13 @@ export default function CityDetails() {
     <>
       <Navbar></Navbar>
       <header className="flex flex-col w-full">
-        <section id="Hero-Banner" className="relative flex h-[434px]">
+        <section
+          id="Hero-Banner"
+          className="relative flex h-[434px] p-5 sm:p-0"
+        >
           <div
             id="Hero-Text"
-            className="relative flex flex-col w-full max-w-[650px] h-fit rounded-[30px] border border-[#E0DEF7] p-10 gap-[30px] bg-white mt-[70px] ml-[calc((100%-1130px)/2)] z-10"
+            className="relative flex flex-col w-full max-w-[650px] h-fit rounded-[30px] border border-[#E0DEF7] p-10 gap-[30px] bg-white mt-[70px] sm:ml-[calc((100%-1130px)/2)] z-10 "
           >
             <h1 className="font-extrabold text-[50px] leading-[60px]">
               Great Office in <br />{" "}
@@ -73,10 +76,10 @@ export default function CityDetails() {
         id="Fresh-Space"
         className="flex flex-col gap-[30px] w-full max-w-[1130px] mx-auto mt-[70px] mb-[120px]"
       >
-        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
+        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap p-5 sm:p-0">
           Browse Offices
         </h2>
-        <div className="grid grid-cols-3 gap-[30px]">
+        <div className="grid sm:grid-cols-3 gap-[30px] p-5 sm:p-0">
           {city.officeSpaces.map((office) => (
             <Link key={office.id} to={`/office/${office.slug}`}>
               <OfficeCard office={office}></OfficeCard>

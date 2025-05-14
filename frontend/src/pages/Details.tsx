@@ -52,7 +52,7 @@ export default function Details() {
               slidesOffsetBefore={10}
             >
               <SwiperSlide className=" swiper-slide !w-fit">
-                <div className="w-[700px] h-[550px] overflow-hidden">
+                <div className="w-[400px] h-[400px] sm:!w-[700px] sm:!h-[550px] overflow-hidden">
                   <img
                     src={`${baseURL}/${office.thumbnail}`}
                     className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ export default function Details() {
               </SwiperSlide>
               {office.photos.map((photo) => (
                 <SwiperSlide key={photo.id} className=" swiper-slide !w-fit">
-                  <div className="w-[700px] h-[550px] overflow-hidden">
+                  <div className="w-[400px] h-[400px] sm:!w-[700px] sm:!h-[550px] overflow-hidden">
                     <img
                       src={`${baseURL}/${photo.photo}`}
                       className="w-full h-full object-cover"
@@ -77,9 +77,9 @@ export default function Details() {
       </section>
       <section
         id="Details"
-        className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
+        className="relative sm:flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
       >
-        <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
+        <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white mb-7 sm:mb-0">
           <p className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
             Popular
           </p>
@@ -131,7 +131,7 @@ export default function Details() {
           <p className="leading-[30px]">{office.about}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
-          <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-[30px]">
             <div className="flex items-center gap-4">
               <img
                 src="/assets/images/icons/security-user.svg"

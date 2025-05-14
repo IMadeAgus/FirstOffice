@@ -126,15 +126,14 @@ export default function BookOffice() {
     }
   };
 
-  const baseURL = "http://127.0.0.1:8000/storage";
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <div
         id="Banner"
         className="relative w-full h-[240px] flex items-center shrink-0 overflow-hidden -mb-[50px]"
       >
-        <h1 className="text-center mx-auto font-extrabold text-[40px] leading-[60px] text-white mb-5 z-20">
+        <h1 className="text-center mx-auto font-extrabold text-[40px] leading-[60px] text-white mb-5 z-20 p-1 sm:p-0">
           Start Booking Your Office
         </h1>
         <div className="absolute w-full h-full bg-[linear-gradient(180deg,_rgba(0,0,0,0)_0%,#000000_91.83%)] z-10" />
@@ -146,9 +145,10 @@ export default function BookOffice() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="relative flex justify-center max-w-[1130px] mx-auto gap-[30px] mb-20 z-20"
+        className="relative sm:flex justify-center max-w-[1130px] mx-auto gap-[30px] mb-20 z-20 p-5 sm:p-0
+p-5 sm:p-0"
       >
-        <div className="flex flex-col shrink-0 w-[500px] h-fit rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
+        <div className="flex flex-col shrink-0 sm:w-[500px] h-fit rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white mb-6 sm:mb-6">
           <div className="flex items-center gap-4">
             <div className="flex shrink-0 w-[140px] h-[100px] rounded-[20px] overflow-hidden">
               <img
@@ -287,7 +287,7 @@ export default function BookOffice() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col shrink-0 w-[400px] h-fit rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
+        <div className="flex flex-col shrink-0 sm:w-[400px] h-fit rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white ">
           <h2 className="font-bold">Your Order Details</h2>
           <div className="flex flex-col gap-5">
             <div className="flex items-center justify-between">
