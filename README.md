@@ -59,12 +59,14 @@ Challenges
 
 - Frontend-Backend Synchronization: Ensuring smooth data communication between React and Laravel
 - Data Validation: Ensuring booking data is valid before entering the database
+- UI Responsiveness: Building interfaces that function optimally across various devices
 - API Performance: Optimizing API responses as data volume increases
 
 Solutions
 
 - Use of TypeScript interfaces aligned with Laravel API Resources
 - Layered validation with Zod (frontend) and Request Validation (backend)
+- Leveraging Tailwind CSS with a mobile-first design approach
 - Implementation of API pagination and eager loading to optimize database queries
 
 Impact
@@ -73,6 +75,7 @@ Impact
 - Reduced development time while maintaining robust data management
 - Improved administrative workflow efficiency
 - Optimized application performance for large datasets
+- Consistent experience across desktop and mobile devices
 
 📘 Lessons Learned
 
