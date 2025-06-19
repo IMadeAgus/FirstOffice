@@ -1,4 +1,4 @@
-# 🏢 Rent Office Web 
+# 🏢 First Office Web 
 
 *Rent Office* is a fullstack web application for renting office spaces online, with easy search functionality by city, office details, and a login-free booking system. Admins can manage data through a dashboard and provide data via REST API.
 
